@@ -1,8 +1,6 @@
-language: go
-
-go:
+ language: go
+ go:
   - 1.x
-
  script: 
   - "make run"
   - go test -v ./fileUtils
