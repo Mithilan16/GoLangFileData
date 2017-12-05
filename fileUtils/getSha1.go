@@ -2,20 +2,22 @@ package fileUtils
 
 import ("crypto/sha1"
 		"log"
-		"io/ioutil"
+		"os"
+		"io"
 )
 
 func getSha1(filePath string) []byte{
-	dat, err := ioutil.ReadFile(filePath)
-	
+	f, err := os.Open(filePath)
 	if err != nil {
-    	log.Fatal(err)
-    }
-    defer file.Close()
-    
-    h:=sha1.New();
-	h.Write([]byte(dat))
-		
-    return h.Sum(nil)
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	h := sha1.New()
+	if _, err := io.Copy(h, f); err != nil {
+		log.Fatal(err)
+	}
+
+	return h.Sum(nil)
 }
 
