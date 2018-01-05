@@ -6,7 +6,7 @@ import ("crypto/sha1"
 		"io"
 )
 
-func getSha1(filePath string) []byte{
+func GetSha1(filePath string) []byte{
 	f, err := os.Open(filePath)
 	if err != nil {
 		log.Fatal(err)
