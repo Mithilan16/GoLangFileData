@@ -4,7 +4,7 @@ import ("log"
 		"os"
 )
 
-func GetFileSize(filePath string) []byte{
+func GetFileSize(filePath string) int{
 	file, err := os.Open( filePath ) 
 	if err != nil {
 		log.Fatal(err)
