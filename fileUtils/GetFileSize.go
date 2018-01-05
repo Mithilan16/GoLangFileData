@@ -15,5 +15,5 @@ func GetFileSize(filePath string) []byte{
     if err != nil {
     log.Fatal(err)
     }
-	return fi.size()
+	return fi.Size()
 }
