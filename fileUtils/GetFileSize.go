@@ -1,5 +1,9 @@
 package fileUtils
 
+import ("log"
+		"os"
+)
+
 func GetFileSize(filePath string) []byte{
 	file, err := os.Open( filePath ) 
 	if err != nil {
